@@ -1,0 +1,13 @@
+{
+    "carosels" : [
+        { "title" : "Conheça alguns projetos em que participei ", 
+            "cards" : [
+                {"imagePath" : "assets/png/automacao.jpeg", "title" : "O que é a automação Suhai?", "description" : "Some quick example text to build on the card title and make up the bulk of the card's content."},
+                {"imagePath" : "assets/png/carx-black-background.png", "title" : "O que é o Carx?", "description" : "Some quick example text to build on the card title and make up the bulk of the card's content."},
+                {"imagePath" : "assets/png/01-original.jpeg", "title" : "O que é o íon?", "description" : "É a plataforma de investimentos do Itaú. Seja no seu celular ou no computador, aqui você encontra tudo o que precisa pra investir com tecnologia, inovação, segurança e uma assessoria de primeira."}
+            ]
+        }
+    ]
+}
+
+

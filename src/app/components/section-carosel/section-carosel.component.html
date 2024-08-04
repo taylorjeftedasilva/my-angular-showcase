@@ -1,0 +1,27 @@
+<div  *ngIf="listCards$ | async as listCards; else loading">
+  <div *ngFor="let carosel of listCards.carosels" class="container section-carosel">
+    <div class="myprojects">
+      <h2>
+        {{carosel.title}}
+      </h2>
+    </div>
+    <div class="carousel">
+        <div *ngFor="let card of carosel.cards" class="col">
+          <div class="card">
+            <div class="image-render-my-projects">
+              <img src={{card.imagePath}} class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <h1 class="card-title-projeto">{{card.title}}</h1>
+              <p class="card-text text-limited">{{card.description}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
