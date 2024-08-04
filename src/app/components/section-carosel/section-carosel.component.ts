@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { ListCaroselCardsModel } from './model/card-model';
-import { CaroselsItensService } from '../../service/carosels-itens.service';
+import { CaroselsItensService } from '../../service/section-carosel-service/carosels-itens.service';
 import { Observable } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
 
@@ -13,7 +13,6 @@ export class SectionCaroselComponent implements OnInit, AfterViewChecked  {
 
   listCards$?: Observable<ListCaroselCardsModel>;
   private listCards?: ListCaroselCardsModel;
-
   private viewChecked = false;
 
   constructor(private service: CaroselsItensService, private cdr: ChangeDetectorRef) {}
