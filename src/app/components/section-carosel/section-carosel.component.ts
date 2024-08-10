@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewChecked, EventEmitter } from '@angular/core';
 import { ListCaroselCardsModel } from './model/card-model';
-import { Observable } from 'rxjs';
 import { SectionCaroselViewModel } from './viewModel/section-carosel-view-model';
 
 @Component({
@@ -10,7 +9,7 @@ import { SectionCaroselViewModel } from './viewModel/section-carosel-view-model'
 })
 export class SectionCaroselComponent implements OnInit  {
 
-  listCards$?: Observable<ListCaroselCardsModel>;
+  listCards?: ListCaroselCardsModel;
 
   constructor(private viewModel: SectionCaroselViewModel) {}
 
@@ -19,9 +18,10 @@ export class SectionCaroselComponent implements OnInit  {
   }
 
   private toDoRequestWithBaseViewModel() {
-    this.listCards$ =  this.viewModel.toDoRequest();
-    this.listCards$?.subscribe(data => 
-      this.checkListCardHaveBeenPolulate(data)
+    this.viewModel.toDoRequest().subscribe( (data) => {
+        this.listCards = data
+        this.checkListCardHaveBeenPolulate(data)
+      }
     )
   } 
 

@@ -1,4 +1,4 @@
-<div  *ngIf="listCards$ | async as listCards; else loading">
+<div  *ngIf="listCards; else loading">
   <div *ngFor="let carosel of listCards.carosels" class="container section-carosel">
     <div class="myprojects">
       <h2>
