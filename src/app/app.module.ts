@@ -7,18 +7,20 @@ import { HeaderComponent } from './components/header/header.component';
 import { SectionCaroselComponent } from './components/section-carosel/section-carosel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
+import { DescriptionComponent } from './components/description/description.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SectionCaroselComponent,
-    FooterComponent
+    FooterComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

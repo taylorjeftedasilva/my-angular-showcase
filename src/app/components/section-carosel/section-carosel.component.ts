@@ -1,42 +1,34 @@
-import { Component, OnInit, AfterViewChecked, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, EventEmitter } from '@angular/core';
 import { ListCaroselCardsModel } from './model/card-model';
-import { CaroselsItensService } from '../../service/section-carosel-service/carosels-itens.service';
 import { Observable } from 'rxjs';
-import { ChangeDetectorRef } from '@angular/core';
+import { SectionCaroselViewModel } from './viewModel/section-carosel-view-model';
 
 @Component({
   selector: 'app-section-carosel',
   templateUrl: './section-carosel.component.html',
   styleUrls: ['./section-carosel.component.css']
 })
-export class SectionCaroselComponent implements OnInit, AfterViewChecked  {
+export class SectionCaroselComponent implements OnInit  {
 
   listCards$?: Observable<ListCaroselCardsModel>;
-  private listCards?: ListCaroselCardsModel;
-  private viewChecked = false;
 
-  constructor(private service: CaroselsItensService, private cdr: ChangeDetectorRef) {}
-
-  ngAfterViewChecked() {
-    this.checkListCardHaveBeenPolulate()
-  }
+  constructor(private viewModel: SectionCaroselViewModel) {}
 
   ngOnInit(): void {
-    this.toDoRequest()
+    this.toDoRequestWithBaseViewModel()
   }
 
-  private checkListCardHaveBeenPolulate() {
-    if ((this.listCards?.carosels.length ?? 0) > 0 && !this.viewChecked) {
-      this.viewChecked = true
+  private toDoRequestWithBaseViewModel() {
+    this.listCards$ =  this.viewModel.toDoRequest();
+    this.listCards$?.subscribe(data => 
+      this.checkListCardHaveBeenPolulate(data)
+    )
+  } 
+
+  private checkListCardHaveBeenPolulate(listCards: ListCaroselCardsModel) {
+    if ((listCards.carosels.length ?? 0) > 0) {
       this.loadCaroseHTML();
     }
-  }
-
-  private toDoRequest(): void{
-    this.listCards$ = this.service.getCarouselCards();
-    this.listCards$.subscribe(data => {
-      this.listCards = data
-    })
   }
 
   private loadCaroseHTML(): void {
