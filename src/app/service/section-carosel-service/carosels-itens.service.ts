@@ -8,7 +8,7 @@ import { ListCaroselCardsModel } from '../models/section-carosel-models/card-mod
 })
 export class CaroselsItensService {
 
-  private apiUrl = 'assets/mock-data/carosels-items.json';
+  private apiUrl = 'http://localhost:3000/carosels';
 
   constructor(private http: HttpClient) {}
 
