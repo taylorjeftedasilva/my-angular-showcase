@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterViewChecked, EventEmitter } from '@angular/core';
-import { ListCaroselCardsModel } from './model/card-model';
+import { Component, OnInit, AfterViewChecked, EventEmitter, AfterViewInit } from '@angular/core';
 import { SectionCaroselViewModel } from './viewModel/section-carosel-view-model';
+import { ListCaroselCardsModel } from './model/card-model';
 
 @Component({
   selector: 'app-section-carosel',
@@ -9,24 +9,34 @@ import { SectionCaroselViewModel } from './viewModel/section-carosel-view-model'
 })
 export class SectionCaroselComponent implements OnInit  {
 
-  listCards?: ListCaroselCardsModel;
+  protected listCards?: ListCaroselCardsModel;
 
   constructor(private viewModel: SectionCaroselViewModel) {}
 
   ngOnInit(): void {
-    this.toDoRequestWithBaseViewModel()
+    this.viewModel.toDoRequest()
+    this.registerBindables()
   }
 
-  private toDoRequestWithBaseViewModel() {
-    this.viewModel.toDoRequest().subscribe( (data) => {
-        this.listCards = data
-        this.checkListCardHaveBeenPolulate(data)
-      }
-    )
+  private registerBindables() {
+
+    // Caso o retorno seja um cenário de sucesso
+
+    this.viewModel.listCards?.subscribe( result => {
+      this.listCards = result.success
+      this.checkListCardHaveBeenPolulate(result.success)
+    })
+
+    // Manipula cenário de erro
+
+    this.viewModel.error?.subscribe( error => {
+      console.log(error)
+    }
+    );
   } 
 
-  private checkListCardHaveBeenPolulate(listCards: ListCaroselCardsModel) {
-    if ((listCards.carosels.length ?? 0) > 0) {
+  private checkListCardHaveBeenPolulate(data: ListCaroselCardsModel): void {
+    if (data.carosels.length > 0) {
       this.loadCaroseHTML();
     }
   }
