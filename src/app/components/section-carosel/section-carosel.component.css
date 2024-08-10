@@ -1,0 +1,71 @@
+.carousel .col {
+    margin-bottom: 30px
+}
+
+.carousel .col  .card {
+    width: 18rem;
+}
+
+.image-render-my-projects {
+    display: flex;
+    max-width: 18rem;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card-body {
+    margin-bottom: 30px
+}
+
+.card-title-projeto {
+    display: -webkit-box;
+    font-size: 1.2em;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.text-limited {
+    display: -webkit-box;   
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;       
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+    line-height: 1.5em;
+}
+
+.text-limited::first-letter {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: black;
+    font-family: fantasy;
+}
+
+.section-carosel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.myprojects {
+    display: block;
+    text-align: center;
+    margin: 0 auto 30px auto;
+    background: linear-gradient(to right, #ffae00, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.carousel {
+    width: 80%;
+    margin: auto;
+}

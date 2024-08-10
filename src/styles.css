@@ -1,0 +1,18 @@
+* {
+    scrollbar-color: #ffae00 #ffffff; /* Cor do polegar e da trilha */
+   scrollbar-width: thin;         /* Largura da barra de rolagem (auto, thin, none) */
+}
+
+.slick-prev:before, .slick-next:before {
+    color: #ffae00 !important;
+}
+
+::selection {
+    background-color: #ffae006d; /* Cor de fundo da seleção */
+    color: black;             /* Cor do texto da seleção */
+}
+
+::-moz-selection {
+    background-color: #ffae006d; /* Cor de fundo da seleção */
+    color: black;             /* Cor do texto da seleção */
+}

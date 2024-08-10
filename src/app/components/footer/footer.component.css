@@ -1,0 +1,27 @@
+footer {
+    background-color: #ffae00 !important;
+    margin-top: 120px;
+}
+
+ul {
+    margin: 0 25% 0 0!important;
+    padding: 30px;
+}
+
+img {
+    width: 24px;
+    height: auto;
+}
+
+a {
+    align-items: center;
+    display: flex;
+}
+
+.rodape {
+    background-color: #ed9121;
+    margin-bottom: 0px;
+    text-align: center; 
+    font-size: 12px; 
+    color: white;
+}
