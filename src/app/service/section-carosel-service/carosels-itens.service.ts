@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { ListCaroselCardsModel } from '../models/section-carosel-models/card-model'
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, retry } from 'rxjs/operators';
 import { Success, Failure } from 'src/app/shared/Result';
 
 export type ResponseError = Failure<HttpErrorResponse>;
@@ -20,17 +20,18 @@ export class CaroselsItensService {
 
   getCarouselCards(): Observable<ReponseResultCarosels> {
     return this.http.get<ListCaroselCardsModel>(this.apiUrl).pipe(
+      retry(3),
       map((response) =>  this.handleSuccess(response)),
       catchError((error) => this.handleError(error))
     );
   }
 
   private handleSuccess(result: ListCaroselCardsModel): ResponseSucess {
-    return new Success<ListCaroselCardsModel>(result);
+    return new Success(result);
   }
 
   private handleError(error: HttpErrorResponse): Observable<ResponseError> {
-    const failure = new Failure<HttpErrorResponse>(error);
+    const failure = new Failure(error);
     return of(failure);
   }
 }

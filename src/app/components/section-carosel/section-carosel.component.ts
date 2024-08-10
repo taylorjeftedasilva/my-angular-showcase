@@ -1,35 +1,48 @@
-import { Component, OnInit, AfterViewChecked, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SectionCaroselViewModel } from './viewModel/section-carosel-view-model';
 import { ListCaroselCardsModel } from './model/card-model';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-section-carosel',
   templateUrl: './section-carosel.component.html',
   styleUrls: ['./section-carosel.component.css']
 })
-export class SectionCaroselComponent implements OnInit  {
+export class SectionCaroselComponent implements OnInit, OnDestroy  {
 
   protected listCards?: ListCaroselCardsModel;
+  private unSubscribe = new Subject<void>();
 
   constructor(private viewModel: SectionCaroselViewModel) {}
 
   ngOnInit(): void {
     this.viewModel.toDoRequest()
-    this.registerBindables()
+    this.subscribeVariablesViewModel()
   }
 
-  private registerBindables() {
+  ngOnDestroy(): void {
+    this.unSubscribe.next();
+    this.unSubscribe.complete();
+  }
+
+  private subscribeVariablesViewModel() {
 
     // Caso o retorno seja um cenário de sucesso
 
-    this.viewModel.listCards?.subscribe( result => {
+    this.viewModel.listCards?.pipe(
+      takeUntil(this.unSubscribe)
+    ).subscribe( result => {
       this.listCards = result.success
       this.checkListCardHaveBeenPolulate(result.success)
     })
 
     // Manipula cenário de erro
 
-    this.viewModel.error?.subscribe( error => {
+    this.viewModel.error?.pipe(
+      takeUntil(this.unSubscribe)
+    ).subscribe( error => {
       console.log(error)
     }
     );
