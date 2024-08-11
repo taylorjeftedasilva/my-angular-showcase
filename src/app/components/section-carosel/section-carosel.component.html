@@ -1,4 +1,7 @@
 <div  *ngIf="listCards; else loading">
+  <div class="main-header-banner">
+    <img src = "assets/png/banner.png" alt="My Happy SVG" />
+  </div>
   <div *ngFor="let carosel of listCards.carosels" class="container section-carosel">
     <div class="myprojects">
       <h2>
@@ -24,5 +27,11 @@
 </div>
 
 <ng-template #loading>
-  <p>Loading...</p>
+  <div class="loading">
+    <div class="d-flex justify-content-center mt-5 ">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
 </ng-template>
