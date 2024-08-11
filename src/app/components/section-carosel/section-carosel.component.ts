@@ -1,32 +1,57 @@
-import { Component, OnInit, AfterViewChecked, EventEmitter } from '@angular/core';
-import { ListCaroselCardsModel } from './model/card-model';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SectionCaroselViewModel } from './viewModel/section-carosel-view-model';
+import { ListCaroselCardsModel } from './viewModel/model/card-model';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { CaroselsItensService } from 'src/app/service/section-carosel-service/carosels-itens.service';
+import { ResponseLitCaroselSingleton } from 'src/app/shared/singletons/response-list-carosel';
 
 @Component({
   selector: 'app-section-carosel',
   templateUrl: './section-carosel.component.html',
-  styleUrls: ['./section-carosel.component.css']
+  styleUrls: ['./section-carosel.component.css'],
+  providers: [CaroselsItensService, SectionCaroselViewModel]
 })
-export class SectionCaroselComponent implements OnInit  {
+export class SectionCaroselComponent implements OnInit, OnDestroy  {
 
-  listCards?: ListCaroselCardsModel;
+  protected listCards?: ListCaroselCardsModel;
+  private unSubscribe = new Subject<void>();
 
   constructor(private viewModel: SectionCaroselViewModel) {}
 
   ngOnInit(): void {
-    this.toDoRequestWithBaseViewModel()
+    this.subscribeVariablesViewModel()
   }
 
-  private toDoRequestWithBaseViewModel() {
-    this.viewModel.toDoRequest().subscribe( (data) => {
-        this.listCards = data
-        this.checkListCardHaveBeenPolulate(data)
+  ngOnDestroy(): void {
+    this.unSubscribe.next();
+    this.unSubscribe.complete();
+  }
+
+  private subscribeVariablesViewModel(): void {
+    this.viewModel.toDoRequest()
+
+       // Caso o retorno seja um cenário de sucesso
+
+      this.viewModel.listCards?.pipe(
+        takeUntil(this.unSubscribe)
+      ).subscribe( result => {
+        this.listCards = result.success
+        this.checkListCardHaveBeenPolulate(result.success)
+      })
+
+      // Manipula cenário de erro
+
+      this.viewModel.error?.pipe(
+        takeUntil(this.unSubscribe)
+      ).subscribe( error => {
+        console.log(error)
       }
-    )
+      );
   } 
 
-  private checkListCardHaveBeenPolulate(listCards: ListCaroselCardsModel) {
-    if ((listCards.carosels.length ?? 0) > 0) {
+  private checkListCardHaveBeenPolulate(data: ListCaroselCardsModel): void {
+    if (data.carosels.length > 0) {
       this.loadCaroseHTML();
     }
   }

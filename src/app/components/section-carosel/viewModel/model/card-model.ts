@@ -1,10 +1,10 @@
-interface CardModel {
+export interface CardModel {
     imagePath: String
     title: String
     description: String
 }
 
-interface CaroselCards {
+export interface CaroselCards {
     title: String
     cards: CardModel[]
 }

@@ -1,10 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CardModel } from '../section-carosel/viewModel/model/card-model';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { DescriptionViewModel } from './viewModel/Description-view-model';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-description',
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.css']
 })
-export class DescriptionComponent {
+export class DescriptionComponent implements OnInit {
+
+  protected cardDescription?: CardModel
+
+  constructor(private activatedRouter: ActivatedRoute, private viewModel: DescriptionViewModel) {}
+
+  ngOnInit(): void {
+    this.toDoRequest();  
+    this.setObservables();
+  }
+
+  private toDoRequest(): void {
+    this.viewModel.toDoRequest(this.activatedRouter);
+  }
+
+  private setObservables() {
+    this.viewModel.cards?.pipe(take(1)).subscribe( response => {
+      this.cardDescription = response
+    })
+  }
 
 }
