@@ -10,7 +10,7 @@
     </div>
     <div class="carousel">
         <div *ngFor="let card of carosel.cards" class="col">
-          <a routerLink="description">
+          <a routerLink="/description/{{carosel.title}}/{{card.title}}">
             <div class="card">
               <div class="image-render-my-projects">
                 <img src={{card.imagePath}} class="card-img-top" alt="...">

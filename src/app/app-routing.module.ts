@@ -5,11 +5,12 @@ import { DescriptionComponent } from './components/description/description.compo
 
 const routes: Routes = [
   {path: "", component: SectionCaroselComponent},
-  {path: "description", component: DescriptionComponent}
+  {path: "description/:carosel-title/:card-slug", component: DescriptionComponent},
+  { path: '**', component: SectionCaroselComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes,  { useHash: true })],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

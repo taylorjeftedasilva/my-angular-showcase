@@ -1,16 +1,27 @@
-<div class="container card" style="background-color: #c3c3c323; border-color: #c3c3c323; width: 80%; margin-bottom: 30px;">
+
+<div *ngIf="cardDescription; else loading" class="container card" style="background-color: #c3c3c323; border-color: #c3c3c323; width: 80%; margin-bottom: 30px;">
     <div class="title-with-colapse" style="width: 100%;  margin: auto; display: flex; justify-content: center; align-items: center; padding-bottom: 10px;">
         <button style="width: 75%; border: none; background: transparent; color: black; display: flex; align-items: center;" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseElement" aria-expanded="false" aria-controls="collapseElement">
             <div class="title-button-colapse" style="width: 90%; font-size: 36px; text-align: center; ">
-                Titulo de exemplo com colapse 
+                {{ cardDescription.title }}
             </div>
                 
             <span class="arow-down" style="margin-left: 5%; font-size: 36px; text-align: center; justify-content: center; align-items: center;"> ↓ </span>
         </button>
     </div>
-    <div class="collapse" id="collapseElement" style="padding-top: 30px; width: 100%; margin: 0 auto 30px 0; border-top: dotted black 1px;">
+    <div class="collapse show" id="collapseElement" style="padding-top: 30px; width: 100%; margin: 0 auto 30px 0; border-top: dotted black 1px;">
         <div class="container" style="width: 80%;">
-            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+            {{ cardDescription.description }}
         </div>
     </div>
 </div>
+
+<ng-template #loading>
+    <div class="loading">
+      <div class="d-flex justify-content-center mt-5 ">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </ng-template>
