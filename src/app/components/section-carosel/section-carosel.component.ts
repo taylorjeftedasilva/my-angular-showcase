@@ -31,23 +31,21 @@ export class SectionCaroselComponent implements OnInit, OnDestroy  {
   private subscribeVariablesViewModel(): void {
     this.viewModel.toDoRequest()
 
-       // Caso o retorno seja um cenário de sucesso
+    this.viewModel.listCards?.pipe(
+      takeUntil(this.unSubscribe)
+    ).subscribe( result => {
+      this.listCards = result.success
+      this.checkListCardHaveBeenPolulate(result.success)
+    })
 
-      this.viewModel.listCards?.pipe(
-        takeUntil(this.unSubscribe)
-      ).subscribe( result => {
-        this.listCards = result.success
-        this.checkListCardHaveBeenPolulate(result.success)
-      })
+    // Manipula cenário de erro
 
-      // Manipula cenário de erro
-
-      this.viewModel.error?.pipe(
-        takeUntil(this.unSubscribe)
-      ).subscribe( error => {
-        console.log(error)
-      }
-      );
+    this.viewModel.error?.pipe(
+      takeUntil(this.unSubscribe)
+    ).subscribe( error => {
+      console.log(error)
+    }
+    );
   } 
 
   private checkListCardHaveBeenPolulate(data: ListCaroselCardsModel): void {

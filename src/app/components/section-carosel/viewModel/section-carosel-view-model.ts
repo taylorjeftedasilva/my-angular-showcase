@@ -1,10 +1,12 @@
-import { Injectable, NgModule } from "@angular/core";
-import { CaroselsItensService, ReponseResultCarosels, ResponseSucess, ResponseError } from '../../../service/section-carosel-service/carosels-itens.service';
-import { Observable, of } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
-import { Success, Failure } from "src/app/shared/Result";
+import { Injectable } from "@angular/core";
+import { CaroselsItensService } from '../../../service/section-carosel-service/carosels-itens.service';
+import { BehaviorSubject, catchError, Observable, of, Subject, take, takeUntil } from 'rxjs';
+import { Success } from "src/app/shared/Result";
 import { ResponseLitCaroselSingleton } from "src/app/shared/singletons/response-list-carosel";
 import { ListCaroselCardsModel } from "./model/card-model";
+import { ResponseError, ResponseSuccess } from "src/app/shared/ToDoRequest";
+
+type ListCardResponse = ResponseSuccess<ListCaroselCardsModel>;
 
 
 @Injectable({
@@ -12,36 +14,37 @@ import { ListCaroselCardsModel } from "./model/card-model";
 })
 export class SectionCaroselViewModel {
 
-    listCards?: Observable<ResponseSucess>;
-    error?: Observable<ResponseError>;
     private singleton: ResponseLitCaroselSingleton;
+    private listCardsSubject = new Subject<ListCardResponse>();
+    private errorSubject = new Subject<ResponseError>();
+
+    public listCards: Observable<ListCardResponse> = this.listCardsSubject.asObservable();
+    public error: Observable<ResponseError> = this.errorSubject.asObservable();;
 
     constructor(private service: CaroselsItensService) {
         this.singleton = ResponseLitCaroselSingleton.getInstance();
     }
 
     toDoRequest(): void {
-        const response = this.service.getCarouselCards();
+        const response = this.service.getCarouselCards().pipe(take(1));
         if (this.singleton.getListCaroselCardsData() === null) {
-            this.listCards = response.pipe(
-                filter(result => {
+            response.subscribe({
+                next: (result) => {
                     if (result instanceof Success) {
                         this.singleton.setListCaroselCardsData(result.success);
-                        return true;
-                    } 
-                    return false;
-                }),
-                map(result => result as ResponseSucess)
-            );
-
-            this.error = response.pipe(
-                filter(result => result instanceof Failure),
-                map(result => result as ResponseError)
-            );
-        } else {
+                        this.listCardsSubject.next(result)
+                    } else {
+                        this.errorSubject.next(result)
+                    }
+                },
+                error: (err) => {
+                    this.errorSubject.next(err);
+                }
+            });
+        }  
+        else {
             const listCards = this.singleton.getListCaroselCardsData() as ListCaroselCardsModel
-            this.listCards = of(new Success(listCards));
+            this.listCardsSubject.next(new Success(listCards));
           }
     }
-    
 }

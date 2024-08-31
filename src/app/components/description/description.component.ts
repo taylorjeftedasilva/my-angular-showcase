@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CardModel } from '../section-carosel/viewModel/model/card-model';
-import { ActivatedRoute, Route, Router } from '@angular/router';
-import { DescriptionViewModel } from './viewModel/Description-view-model';
+import { ActivatedRoute } from '@angular/router';
+import {DescriptionViewModel } from './viewModel/Description-view-model';
 import { take } from 'rxjs';
 
 @Component({
@@ -17,14 +17,14 @@ export class DescriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.toDoRequest();  
-    this.setObservables();
+    this.subscribeVariablesViewModel();
   }
 
   private toDoRequest(): void {
     this.viewModel.toDoRequest(this.activatedRouter);
   }
 
-  private setObservables() {
+  private subscribeVariablesViewModel() {
     this.viewModel.cards?.pipe(take(1)).subscribe( response => {
       this.cardDescription = response
     })
