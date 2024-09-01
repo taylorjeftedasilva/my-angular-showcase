@@ -3,6 +3,7 @@ import { CardModel } from '../section-carosel/viewModel/model/card-model';
 import { ActivatedRoute } from '@angular/router';
 import {DescriptionViewModel } from './viewModel/Description-view-model';
 import { take } from 'rxjs';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-description',
@@ -11,9 +12,13 @@ import { take } from 'rxjs';
 })
 export class DescriptionComponent implements OnInit {
 
-  protected cardDescription?: CardModel
+  protected cardDescription?: CardModel;
+  public safeHtml?: SafeHtml;
 
-  constructor(private activatedRouter: ActivatedRoute, private viewModel: DescriptionViewModel) {}
+  constructor(private activatedRouter: ActivatedRoute,
+    private viewModel: DescriptionViewModel,
+    private sanitizer: DomSanitizer) {
+  }
 
   ngOnInit(): void {
     this.toDoRequest();  
@@ -27,6 +32,8 @@ export class DescriptionComponent implements OnInit {
   private subscribeVariablesViewModel() {
     this.viewModel.cards?.pipe(take(1)).subscribe( response => {
       this.cardDescription = response
+      const results = this.cardDescription.cardDetail?.resultados?.description.text ?? ""
+      this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(results);
     })
   }
 

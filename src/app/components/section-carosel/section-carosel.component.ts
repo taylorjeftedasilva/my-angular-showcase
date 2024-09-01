@@ -29,7 +29,6 @@ export class SectionCaroselComponent implements OnInit, OnDestroy  {
   }
 
   private subscribeVariablesViewModel(): void {
-    this.viewModel.toDoRequest()
 
     this.viewModel.listCards?.pipe(
       takeUntil(this.unSubscribe)
@@ -46,6 +45,8 @@ export class SectionCaroselComponent implements OnInit, OnDestroy  {
       console.log(error)
     }
     );
+
+    this.viewModel.toDoRequest()
   } 
 
   private checkListCardHaveBeenPolulate(data: ListCaroselCardsModel): void {

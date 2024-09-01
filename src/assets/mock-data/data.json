@@ -17,7 +17,31 @@
                     {
                         "imagePath" : "assets/png/01-original.jpeg",
                         "title" : "O que é o íon?",
-                        "description" : "É a plataforma de investimentos do Itaú. Seja no seu celular ou no computador, aqui você encontra tudo o que precisa pra investir com tecnologia, inovação, segurança e uma assessoria de primeira."}
+                        "description" : "É a plataforma de investimentos do Itaú. Seja no seu celular ou no computador, aqui você encontra tudo o que precisa pra investir com tecnologia, inovação, segurança e uma assessoria de primeira.",
+                        "cardDetail": {
+                            "imagePath": "",
+                            "title": {
+                                "text": "íon Itaú",
+                                "image": "/assets/png/logo-ion-itau-256.png"
+                            },
+                            "topicos": {
+                                "contratante": "Contratante: Itáu",
+                                "projeto": "Projeto: ion",
+                                "tecnologias": ["Tecnologia: iOS", "Tecnologia: Angular", "Tecnologia: Android"],
+                                "duracao": "Duração: 07/2021 - Atual"
+                            },
+                            "resultados": {
+                                "title": {
+                                    "text": "Resultados Alcançados",
+                                    "style": "left"
+                                },
+                                "description": {
+                                    "text": "<style> .list-group { list-style-type: none; padding: 0; margin: 0; } .list-group-item { border: none; padding: 1rem; } .negrito { font-weight: bold; font-size: 1.1rem; } p { margin-bottom: 1.5rem; } .mt-4 { margin-top: 1.5rem; } </style> <p class=\"lead\">Minha contribuição ao projeto Ion gerou resultados significativos para o aplicativo, tanto em termos de funcionalidade quanto em eficiência de desenvolvimento:</p><ol class=\"list-group\"><li class=\"list-group-item\"><h3 class=\"h4\">Entrega de Funcionalidades Críticas:</h3><span class=\"negrito\">Tela de Etapas:</span> Implementação bem-sucedida de uma tela intermediária que conectava a tela de recomendação à jornada de contratação, garantindo um fluxo contínuo e eficiente para o usuário. Além disso, a personalização da tela de sucesso foi essencial para melhorar a experiência do usuário ao finalizar a contratação dos produtos.</li><li class=\"list-group-item\"><h3 class=\"h4\">Otimização de Processos:</h3><span class=\"negrito\">Campanha de Bônus:</span> Entrega de uma tela de loading para a otimização de carteira antes do prazo, o que não só acelerou o processo de desenvolvimento como também permitiu que a equipe focasse em outras entregas importantes para a campanha.</li><li class=\"list-group-item\"><h3 class=\"h4\">Multiplataforma e Integração:</h3><span class=\"negrito\">Correções e Suporte em Android e iOS:</span> Atuação em correções de bugs e implementação de funcionalidades em ambas as plataformas, garantindo consistência e qualidade na entrega. O suporte fornecido ao time Android e QA foi fundamental para manter a integridade do aplicativo, especialmente em prazos apertados.</li><li class=\"list-group-item\"><h3 class=\"h4\">Inovação e Redução de Tempo de Entrega:</h3><span class=\"negrito\">Módulo Flexível para Webview:</span> Criação de um módulo inovador que permitiu a integração rápida e eficiente entre nativo e Webview. Essa solução reduziu o tempo de entrega de novas funcionalidades de semanas para um dia, aumentando significativamente a agilidade do desenvolvimento e a capacidade de resposta às necessidades do negócio.</li></ol><p class=\"mt-4\">Esses resultados não só contribuíram para a evolução do aplicativo, mas também demonstraram minha capacidade de entregar soluções eficazes sob pressão e minha habilidade em lidar com múltiplas plataformas e tecnologias.</p>",
+                                    "style": "center"
+                                }
+                            }
+                        }
+                    }
                 ]
             },
             { 
@@ -30,7 +54,12 @@
                     {
                         "imagePath" : "assets/png/maxresdefault.jpeg",
                         "title" : "Python", 
-                        "description" : "Some quick example text to build on the card title and make up the bulk of the card's content."},
+                        "description" : "Some quick example text to build on the card title and make up the bulk of the card's content.",
+                        "card-detail": {
+                            "imagePath": "",
+                            "title": "O que é o íon"
+                        }
+                    },
                     {
                         "imagePath" : "assets/png/swift.jpeg",
                         "title" : "Swift",
