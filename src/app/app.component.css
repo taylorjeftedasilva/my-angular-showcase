@@ -16,3 +16,10 @@
     font-weight: bold !important;
     font-size: 1.1rem !important;
 }
+
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 6rem; /* Espaço para compensar a altura do header fixo */
+    }
+}

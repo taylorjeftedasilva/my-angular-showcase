@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardModel } from '../section-carosel/viewModel/model/card-model';
 import { ActivatedRoute } from '@angular/router';
 import {DescriptionViewModel } from './viewModel/Description-view-model';
@@ -8,7 +8,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'app-description',
   templateUrl: './description.component.html',
-  styleUrls: ['./description.component.css']
+  styleUrls: ['./css/description.component.css', './css/description.component.injectable.css' ]
 })
 export class DescriptionComponent implements OnInit {
 

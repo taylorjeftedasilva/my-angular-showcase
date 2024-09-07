@@ -1,3 +1,44 @@
 .navbar {
     background-color: #ffae00 !important;
 }
+
+@media (max-width: 768px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000; /* Garante que o header fique sobre outros elementos */
+        background-color: #ffffff; /* Cor de fundo para o header */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para destacar o header */
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0 auto !important;
+        color: black;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
+    .navbar-nav .nav-item {
+        display: inline-block;
+        margin-right: 10px; /* Espaço entre os ícones */
+    }
+
+    .navbar-nav .nav-item:last-child {
+        margin-right: 0; /* Remove a margem do último item */
+    }
+
+    .profile-ul {
+        justify-content: center;
+        margin: 0 auto !important;
+    }
+
+    .profiles {
+        margin: 20px 20px 0px 20px;
+    }
+}

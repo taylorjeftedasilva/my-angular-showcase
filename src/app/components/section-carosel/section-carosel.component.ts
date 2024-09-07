@@ -68,19 +68,22 @@ export class SectionCaroselComponent implements OnInit, OnDestroy  {
         focusOnSelect: true,
         responsive: [
           {
-            breakpoint: 1324,
+            breakpoint: 1000,
             settings: {
               slidesToShow: 2,
               slidesToScroll: 1,
               infinite: true,
-              dots: true
+              dots: true,
+              variableWidth: true,
             }
           },
           {
-            breakpoint: 1000,
+            breakpoint: 800,
             settings: {
               slidesToShow: 1,
-              slidesToScroll: 1
+              slidesToScroll: 1,
+              variableWidth: true,
+
             }
           }
         ]
