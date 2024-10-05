@@ -1,3 +1,15 @@
+.title {
+    width: 100%;
+    margin: 30px auto 30px auto;
+}
+
+.title-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0px;
+}
+
 .logo-title {
     width: 6.5rem;
     height: auto;
@@ -29,3 +41,14 @@ hr.colored {
     margin: 30px auto;
 }
 
+.safeHtml {
+    width: 80%; 
+    text-align: justify;
+}
+
+.loading {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

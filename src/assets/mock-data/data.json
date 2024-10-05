@@ -1,71 +1,111 @@
-
-
 {
-    "carosels" : {  
-        "carosels" : [
-            { 
-                "title" : "Conheça alguns projetos em que participei ", 
-                "cards" : [
-                    {
-                        "imagePath" : "assets/png/automacao.jpeg",
-                        "title" : "O que é a automação Suhai?",
-                        "description" : "Some quick example text to build on the card title and make up the bulk of the card's content."},
-                    {
-                        "imagePath" : "assets/png/carx-black-background.png",
-                        "title" : "O que é o Carx?",
-                        "description" : "Some quick example text to build on the card title and make up the bulk of the card's content."},
-                    {
-                        "imagePath" : "assets/png/01-original.jpeg",
-                        "title" : "O que é o íon?",
-                        "description" : "É a plataforma de investimentos do Itaú. Seja no seu celular ou no computador, aqui você encontra tudo o que precisa pra investir com tecnologia, inovação, segurança e uma assessoria de primeira.",
-                        "cardDetail": {
-                            "imagePath": "",
-                            "title": {
-                                "text": "íon Itaú",
-                                "image": "/assets/png/logo-ion-itau-256.png"
-                            },
-                            "topicos": {
-                                "contratante": "Contratante: Itáu",
-                                "projeto": "Projeto: ion",
-                                "tecnologias": ["Tecnologia: iOS", "Tecnologia: Angular", "Tecnologia: Android"],
-                                "duracao": "Duração: 07/2021 - Atual"
-                            },
-                            "resultados": {
-                                "title": {
-                                    "text": "Resultados Alcançados",
-                                    "style": "left"
-                                },
-                                "description": {
-                                    "text": "<p class=\"lead\">Minha contribuição ao projeto Ion gerou resultados significativos para o aplicativo, tanto em termos de funcionalidade quanto em eficiência de desenvolvimento:</p><ol class=\"list-group\"><li class=\"list-group-item\"><h3 class=\"h4\">Entrega de Funcionalidades Críticas:</h3><span class=\"negrito\">Tela de Etapas:</span> Implementação bem-sucedida de uma tela intermediária que conectava a tela de recomendação à jornada de contratação, garantindo um fluxo contínuo e eficiente para o usuário. Além disso, a personalização da tela de sucesso foi essencial para melhorar a experiência do usuário ao finalizar a contratação dos produtos.</li><li class=\"list-group-item\"><h3 class=\"h4\">Otimização de Processos:</h3><span class=\"negrito\">Campanha de Bônus:</span> Entrega de uma tela de loading para a otimização de carteira antes do prazo, o que não só acelerou o processo de desenvolvimento como também permitiu que a equipe focasse em outras entregas importantes para a campanha.</li><li class=\"list-group-item\"><h3 class=\"h4\">Multiplataforma e Integração:</h3><span class=\"negrito\">Correções e Suporte em Android e iOS:</span> Atuação em correções de bugs e implementação de funcionalidades em ambas as plataformas, garantindo consistência e qualidade na entrega. O suporte fornecido ao time Android e QA foi fundamental para manter a integridade do aplicativo, especialmente em prazos apertados.</li><li class=\"list-group-item\"><h3 class=\"h4\">Inovação e Redução de Tempo de Entrega:</h3><span class=\"negrito\">Módulo Flexível para Webview:</span> Criação de um módulo inovador que permitiu a integração rápida e eficiente entre nativo e Webview. Essa solução reduziu o tempo de entrega de novas funcionalidades de semanas para um dia, aumentando significativamente a agilidade do desenvolvimento e a capacidade de resposta às necessidades do negócio.</li></ol><p class=\"mt-4\">Esses resultados não só contribuíram para a evolução do aplicativo, mas também demonstraram minha capacidade de entregar soluções eficazes sob pressão e minha habilidade em lidar com múltiplas plataformas e tecnologias.</p>",
-                                    "style": "center"
+    "carosels" : [
+        { 
+            "title" : "Conheça alguns projetos em que participei ", 
+            "cards" : [
+                {
+                    "imagePath" : "assets/png/automacao.jpeg",
+                    "title" : "O que é a automação Suhai?",
+                    "description" : "O projeto Suhai automatiza a validação de dados de planilhas Excel e lançamentos via VPN",
+                    "cardDetail": {
+                        "imagePath": "",
+                        "title": { 
+                            "text": "Suhai"
+                        }, 
+                        "topicos": {
+                            "contratante": "Contratante: DataType",
+                            "projeto": "Projeto: Automação Suhai",
+                            "sections": [
+                                {
+                                    "title_section": "Resultados",
+                                    "ignore_menu_section": true,
+                                    "items": [
+                                        {
+                                            "title": "Resultados Alcançados",
+                                            "text": "<p class=\"lead\">Minha contribuição ao projeto Suhai resultou em melhorias significativas na eficiência operacional e na redução de erros, demonstrando meu compromisso com a entrega de soluções de alta qualidade:</p><ol class=\"list-group\"><li class=\"list-group-item\"><h3 class=\"h4\">Automatização de Processos:</h3><span class=\"negrito\">Extração e Validação de Dados:</span> Desenvolvi um sistema robusto em Python que automatiza a extração de dados de planilhas Excel, validando informações antes de serem enviadas ao sistema. Essa automação não apenas minimizou erros, mas também acelerou significativamente o processo de lançamento de dados.</li><li class=\"list-group-item\"><h3 class=\"h4\">Integração Segura com VPN:</h3><span class=\"negrito\">Login Automatizado e Navegação:</span> Implementei uma solução utilizando Selenium para conectar-se automaticamente à VPN do sistema e realizar logins. O sistema navega pelos formulários, preenchendo-os com dados validados, o que garantiu uma experiência de usuário fluida e eficiente.</li><li class=\"list-group-item\"><h3 class=\"h4\">Mecanismo de Repetição Inteligente:</h3><span class=\"negrito\">Tentativas de Reenvio:</span> Em casos de falhas no preenchimento, criei um mecanismo que tenta novamente por até três vezes antes de registrar o erro. Isso aumentou ainda mais a robustez do sistema e a taxa de sucesso no lançamento de dados.</li><li class=\"list-group-item\"><h3 class=\"h4\">Gestão de Erros Eficiente:</h3><span class=\"negrito\">Registro e Notificação:</span> Desenvolvi um sistema que salva informações de erro em uma planilha dedicada e envia alertas por e-mail, permitindo uma rápida identificação e resolução de problemas, o que melhorou a responsividade da equipe.</li><li class=\"list-group-item\"><h3 class=\"h4\">Resultados Impactantes:</h3><span class=\"negrito\">Redução de Erros e Tempo de Lançamento:</span> Com a implementação deste sistema, conseguimos reduzir drasticamente a margem de erros em lançamentos e otimizar o tempo necessário para a inserção de dados, proporcionando uma eficiência operacional sem precedentes.</li></ol><p class=\"mt-4\">Esses resultados não apenas elevaram a qualidade do projeto Suhai, mas também ressaltaram minha capacidade de inovar e solucionar problemas de forma eficaz em um ambiente dinâmico e desafiador. Minha experiência em tecnologias como Python, Selenium, Django, Pandas e Celery me permite lidar com integrações complexas e entregar resultados tangíveis com confiança.</p>"
+                                        }
+                                    ]
                                 }
-                            }
+                            ],
+                            "duracao": "Duração: 01/2021 - 02/2021"
+
                         }
                     }
-                ]
-            },
-            { 
-                "title" : "Algumas tecnologias que eu conheço.", 
-                "cards" : [
-                    {
-                        "imagePath" : "assets/png/web-automation-selenium-python.avif",
-                        "title" : "Selenium",
-                        "description" : "Some quick example text to build on the card title and make up the bulk of the card's content."},
-                    {
-                        "imagePath" : "assets/png/maxresdefault.jpeg",
-                        "title" : "Python", 
-                        "description" : "Some quick example text to build on the card title and make up the bulk of the card's content.",
-                        "card-detail": {
-                            "imagePath": "",
-                            "title": "O que é o íon"
+                },
+                {
+                    "imagePath" : "assets/png/carx-black-background.png",
+                    "title" : "O que é o Carx?",
+                    "description" : "Carx é uma plataforma para consulta de dados de veículos, fornecendo informações precisas.",
+                    "cardDetail": {
+                        "imagePath": "",
+                        "title": { 
+                            "text": "Carx"
+                        }, 
+                        "topicos": {
+                            "contratante": "Contratante: DataType",
+                            "projeto": "Projeto: Carx",
+                            "sections": [
+                                {
+                                    "title_section": "Resultados",
+                                    "ignore_menu_section": true,
+                                    "items": [
+                                        {
+                                            "title": "Resultados Alcançados",
+                                            "text": "<p class=\"lead\">Minha contribuição ao projeto Carx gerou resultados significativos para a aplicação, tanto em termos de funcionalidade quanto em eficiência de desenvolvimento:</p><ol class=\"list-group\"><li class=\"list-group-item\"><h3 class=\"h4\">Desenvolvimento de APIs:</h3><span class=\"negrito\">Criação e Manutenção de APIs:</span> Desenvolvi e mantive APIs essenciais utilizando Django, garantindo a integração perfeita entre diferentes componentes do sistema, o que melhorou a funcionalidade e a comunicação entre front-end e back-end.</li><li class=\"list-group-item\"><h3 class=\"h4\">Automatização de Integrações:</h3><span class=\"negrito\">Modelo Genérico para Novas APIs:</span> Implementei um modelo genérico que permite a inclusão de novas APIs de forma dinâmica pelo painel de administração. Isso eliminou a necessidade de codificação manual para cada nova integração, acelerando o processo de desenvolvimento.</li><li class=\"list-group-item\"><h3 class=\"h4\">Gerenciamento Eficiente do Projeto:</h3><span class=\"negrito\">Uso de Pip e Heroku:</span> Adotei o gerenciador de pacotes Pip para otimizar a gestão de dependências e utilizei o Heroku para realizar o deploy da aplicação, garantindo uma entrega contínua e confiável.</li><li class=\"list-group-item\"><h3 class=\"h4\">Agilidade no Desenvolvimento:</h3><span class=\"negrito\">Consultas Dinâmicas a APIs:</span> A implementação de consultas dinâmicas a novas APIs permitiu uma resposta rápida às necessidades do projeto, reduzindo o tempo de integração e aumentando a flexibilidade no desenvolvimento.</li></ol><p class=\"mt-4\">Esses resultados não só contribuíram para a evolução do projeto Carx, mas também demonstraram minha capacidade de entregar soluções eficazes sob pressão e minha habilidade em lidar com múltiplas tecnologias e integrações de forma eficiente.</p>"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "duracao": "Duração: 06/2020 - 07/2021"
+
                         }
-                    },
-                    {
-                        "imagePath" : "assets/png/swift.jpeg",
-                        "title" : "Swift",
-                        "description" : "É a plataforma de investimentos do Itaú. Seja no seu celular ou no computador, aqui você encontra tudo o que precisa pra investir com tecnologia, inovação, segurança e uma assessoria de primeira."}
-                ]
-            }
-        ]
-    }
+                    }
+                },
+                {
+                    "imagePath" : "assets/png/01-original.jpeg",
+                    "title" : "O que é o íon?",
+                    "description" : "O projeto Ion otimiza a experiência do usuário e a eficiência no investimento.",
+                    "cardDetail": {
+                        "imagePath": "",
+                        "title": {
+                            "text": "íon Itaú",
+                            "image": "/assets/png/logo-ion-itau-256.png"
+                        },
+                        "topicos": {
+                            "contratante": "Contratante: Itáu",
+                            "projeto": "Projeto: ion",
+                            "sections": [
+                                {
+                                    "title_section": "Resultados",
+                                    "ignore_menu_section": true,
+                                    "items": [
+                                        {
+                                            "title": "Resultados Alcançados",
+                                            "text": "<p class=\"lead\">Minha contribuição ao projeto Ion gerou resultados significativos para o aplicativo, tanto em termos de funcionalidade quanto em eficiência de desenvolvimento:</p><ol class=\"list-group\"><li class=\"list-group-item\"><h3 class=\"h4\">Entrega de Funcionalidades Críticas:</h3><span class=\"negrito\">Tela de Etapas:</span> Implementação bem-sucedida de uma tela intermediária que conectava a tela de recomendação à jornada de contratação, garantindo um fluxo contínuo e eficiente para o usuário. Além disso, a personalização da tela de sucesso foi essencial para melhorar a experiência do usuário ao finalizar a contratação dos produtos.</li><li class=\"list-group-item\"><h3 class=\"h4\">Otimização de Processos:</h3><span class=\"negrito\">Campanha de Bônus:</span> Entrega de uma tela de loading para a otimização de carteira antes do prazo, o que não só acelerou o processo de desenvolvimento como também permitiu que a equipe focasse em outras entregas importantes para a campanha.</li><li class=\"list-group-item\"><h3 class=\"h4\">Multiplataforma e Integração:</h3><span class=\"negrito\">Correções e Suporte em Android e iOS:</span> Atuação em correções de bugs e implementação de funcionalidades em ambas as plataformas, garantindo consistência e qualidade na entrega. O suporte fornecido ao time Android e QA foi fundamental para manter a integridade do aplicativo, especialmente em prazos apertados.</li><li class=\"list-group-item\"><h3 class=\"h4\">Inovação e Redução de Tempo de Entrega:</h3><span class=\"negrito\">Módulo Flexível para Webview:</span> Criação de um módulo inovador que permitiu a integração rápida e eficiente entre nativo e Webview. Essa solução reduziu o tempo de entrega de novas funcionalidades de semanas para um dia, aumentando significativamente a agilidade do desenvolvimento e a capacidade de resposta às necessidades do negócio.</li></ol><p class=\"mt-4\">Esses resultados não só contribuíram para a evolução do aplicativo, mas também demonstraram minha capacidade de entregar soluções eficazes sob pressão e minha habilidade em lidar com múltiplas plataformas e tecnologias.</p>"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title_section": "Tecnologias",
+                                    "items": [
+                                        {
+                                            "title":"Tecnologia: iOS",
+    
+                                            "text": "<p class=\"lead\">O desenvolvimento para iOS é uma jornada fascinante que combina inovação e design, permitindo a criação de aplicativos que oferecem experiências ricas e intuitivas aos usuários de dispositivos Apple.</p><ol class=\"list-group\"><li class=\"list-group-item\"><h3 class=\"h4\">Gerenciamento de Dependências:</h3><span class=\"negrito\">CocoaPods:</span> Para garantir que meus projetos permaneçam organizados e eficientes, utilizo o CocoaPods como ferramenta de gerenciamento de dependências. Essa solução facilita a integração de bibliotecas de terceiros, permitindo que eu adicione funcionalidades ao meu aplicativo sem complicações.</li><li class=\"list-group-item\"><h3 class=\"h4\">Arquitetura do Projeto:</h3><span class=\"negrito\">MVVM-C:</span> A arquitetura que aplico nos meus projetos é a MVVM-C (Model-View-ViewModel-Coordinator). Essa abordagem proporciona uma clara separação de preocupações, onde cada camada do aplicativo desempenha um papel específico, melhorando a manutenção e a escalabilidade do código.</li><li class=\"list-group-item\"><h3 class=\"h4\">Qualidade do Código:</h3><span class=\"negrito\">SwiftLint:</span> Para assegurar a qualidade e a consistência do código, implemento o SwiftLint, que ajuda a aplicar as melhores práticas de codificação e a manter o código em conformidade com as diretrizes de estilo.</li><li class=\"list-group-item\"><h3 class=\"h4\">Construção de Interfaces:</h3><span class=\"negrito\">ViewCode:</span> A construção de interfaces é realizada através da abordagem ViewCode, que permite criar layouts programaticamente. Essa metodologia confere maior flexibilidade e controle sobre a UI, facilitando a personalização das telas.</li><li class=\"list-group-item\"><h3 class=\"h4\">Testes e Qualidade:</h3><span class=\"negrito\">XCTest e Snapshot:</span> A realização de testes é uma prioridade em meu fluxo de trabalho. Utilizo o XCTest para testes unitários e funcionais, além de implementar testes de snapshot para verificar visualmente os componentes da interface.</li></ol><p class=\"mt-4\">Essas práticas e ferramentas são fundamentais para o desenvolvimento de aplicativos iOS modernos e de alta performance. Com um compromisso constante com a qualidade e a inovação, busco criar soluções que não apenas atendam, mas superem as expectativas dos usuários em um mercado em rápida evolução.</p>" 
+                                        }, 
+                                        {
+                                            "title": "Tecnologia: Angular",
+                                            "text": "<p class=\"lead\">O desenvolvimento em Angular é uma abordagem poderosa para a construção de aplicações web modernas e dinâmicas, permitindo a criação de interfaces responsivas e escaláveis.</p><ol class=\"list-group\"><li class=\"list-group-item\"><h3 class=\"h4\">Controle de Versionamento:</h3><span class=\"negrito\">GitFlow:</span> Utilizo a metodologia GitFlow para gerenciar o controle de branches em meus projetos. Essa abordagem facilita a organização do desenvolvimento, permitindo que equipes colaborem de forma eficiente e estruturada, separando claramente as fases de desenvolvimento e produção.</li><li class=\"list-group-item\"><h3 class=\"h4\">Integração Contínua e Entrega Contínua:</h3><span class=\"negrito\">GitHub Actions:</span> Para garantir uma automação eficaz, implemento o GitHub Actions como ferramenta de CI/CD. Isso possibilita a execução de testes e o deploy automático da aplicação, assegurando que o código esteja sempre em conformidade com as melhores práticas antes de ser enviado para produção.</li><li class=\"list-group-item\"><h3 class=\"h4\">Testes:</h3><span class=\"negrito\">Jest:</span> A realização de testes é uma parte essencial do meu processo de desenvolvimento. Utilizo o Jest como framework de testes, que oferece uma configuração simples e poderosa, permitindo a criação de testes unitários e de integração que garantem a qualidade e a robustez da aplicação.</li><li class=\"list-group-item\"><h3 class=\"h4\">Arquitetura do Projeto:</h3><span class=\"negrito\">MVVM e SOLID:</span> Adoto a arquitetura MVVM (Model-View-ViewModel) para estruturar minhas aplicações, o que facilita a separação de preocupações e melhora a testabilidade do código. Além disso, sigo os princípios SOLID para garantir que o código seja modular, escalável e fácil de manter.</li></ol><p class=\"mt-4\">Essas práticas e ferramentas são fundamentais para o desenvolvimento de aplicações Angular de alta qualidade. Comprometido com a excelência e a inovação, busco criar soluções que atendam às expectativas dos usuários em um ambiente digital em constante evolução.</p>"
+                                        }
+                                    ]
+                                }
+
+                            ],
+                            "duracao": "Duração: 07/2021 - Atual"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
 }

@@ -4,7 +4,6 @@ import { ListCaroselCardsModel } from './viewModel/model/card-model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CaroselsItensService } from 'src/app/service/section-carosel-service/carosels-itens.service';
-import { ResponseLitCaroselSingleton } from 'src/app/shared/singletons/response-list-carosel';
 
 @Component({
   selector: 'app-section-carosel',

@@ -18,11 +18,11 @@ export class ServiceToDoRequest {
 
     toDoRequest<T>(url: string): Observable<Response<T>> {
         this.validateURL(url)
-        return this.http.get<Response<T>>(url).pipe(
+        return this.http.get<Response<T>>('/assets/mock-data/data.json').pipe(
             retry(3),
             map((response) =>  this.handleSuccess<T>(response)),
             catchError((error) => this.handleError(error))
-            );
+          );
     }
 
     private validateURL(urlString: string): void  | never {

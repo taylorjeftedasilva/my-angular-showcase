@@ -13,12 +13,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class DescriptionComponent implements OnInit {
 
   protected cardDescription?: CardModel;
-  public safeHtml?: SafeHtml;
 
   constructor(private activatedRouter: ActivatedRoute,
     private viewModel: DescriptionViewModel,
-    private sanitizer: DomSanitizer) {
-  }
+    private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     this.toDoRequest();  
@@ -31,10 +29,20 @@ export class DescriptionComponent implements OnInit {
 
   private subscribeVariablesViewModel() {
     this.viewModel.cards?.pipe(take(1)).subscribe( response => {
-      this.cardDescription = response
-      const results = this.cardDescription.cardDetail?.resultados?.description.text ?? ""
-      this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(results);
+      setTimeout(() => {
+        this.cardDescription = response
+      },300);
+     
     })
+  }
+
+  protected sanitizerTransform(htmlFont: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(htmlFont);
+  }
+
+  scrollToSection(event: Event, sectionId: string) {
+    event.preventDefault();
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   }
 
 }

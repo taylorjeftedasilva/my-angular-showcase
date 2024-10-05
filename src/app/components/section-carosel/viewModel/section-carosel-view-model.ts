@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { CaroselsItensService } from '../../../service/section-carosel-service/carosels-itens.service';
-import { BehaviorSubject, catchError, Observable, of, Subject, take, takeUntil } from 'rxjs';
+import { Observable, Subject, take } from 'rxjs';
 import { Success } from "src/app/shared/Result";
 import { ResponseLitCaroselSingleton } from "src/app/shared/singletons/response-list-carosel";
 import { ListCaroselCardsModel } from "./model/card-model";

@@ -10,12 +10,24 @@ export interface CardResults {
     description: CardText
 }
 
+export interface CardSectionItems {
+    title: string
+    title_text: string
+    text: string
+}
+
+export interface CardSection {
+    title_section: string
+    ignore_menu_section: boolean
+    items: [CardSectionItems]
+}
 
 export interface CardTopics {
     contratante: string
     projeto: string
     tecnologias: [string]
     duracao: string
+    sections: [CardSection]
 }
 
 export interface CardDetail {

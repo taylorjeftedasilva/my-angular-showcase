@@ -1,66 +1,51 @@
 <div *ngIf="cardDescription; else loading">
-    <div style="width: 100%;  margin: 30px auto 30px auto;">
-      <div class="title-card" style="display: flex; justify-content: center; align-items: center; padding-bottom: 0px;">
-        
+
+    <div  class="title">
+      <div class="title-card">
         <img class="logo-title" *ngIf="cardDescription.cardDetail?.title?.image" src="{{cardDescription.cardDetail?.title?.image}}" alt="">
-        <h1  *ngIf="!cardDescription.cardDetail?.title?.image" > {{ cardDescription.cardDetail?.title?.text ?? ""}}  </h1>
+        <h1  *ngIf="!cardDescription.cardDetail?.title?.image" > {{ cardDescription.cardDetail?.title?.text }}  </h1>
       </div>
       <hr class="colored text-center">
     </div>
 
-
     <div class="container text-center">
       <div class="row">
-        <div class="col-md-4">
-          {{ cardDescription.cardDetail?.topicos?.contratante ?? ""}}
+        <div *ngIf="cardDescription.cardDetail?.topicos?.contratante" class="col-md-4">
+          {{ cardDescription.cardDetail?.topicos?.contratante}}
         </div>
-        <div class="col-md-4">
-          {{ cardDescription.cardDetail?.topicos?.projeto ?? ""}}
+        <div *ngIf="cardDescription.cardDetail?.topicos?.projeto" class="col-md-4">
+          {{ cardDescription.cardDetail?.topicos?.projeto}}
         </div>
-        <div class="col-md-4">
-          {{ cardDescription.cardDetail?.topicos?.duracao ?? ""}}
+        <div *ngIf="cardDescription.cardDetail?.topicos?.duracao"  class="col-md-4">
+          {{ cardDescription.cardDetail?.topicos?.duracao}}
         </div>
-        <div *ngFor="let item of cardDescription.cardDetail?.topicos?.tecnologias" class="col-md-4">
-          {{ item }}
-        </div>
+
+        <ng-container  *ngFor="let section of cardDescription.cardDetail?.topicos?.sections">
+          <ng-container *ngIf="section.ignore_menu_section !== true" >
+            <div *ngFor="let item of section.items" class="col-md-4" (click)="scrollToSection($event, item.title_text)">
+              {{ item.title }}
+            </div>
+          </ng-container>
+        </ng-container>
+
       </div>
     </div>
 
-    <div class="content-block-info">
-      <div class="content-block-title-h2"> 
-        <h2> {{ cardDescription.cardDetail?.resultados?.title?.text }} </h2>
-      </div>
-      <div class="container" style="width: 80%; text-align: justify;">
-        <div [innerHTML]="safeHtml"></div>
-      </div>
-    </div>
-
-    <div class="content-block-info">
-      <div class="content-block-title"> 
-        <h2> iOS </h2>
-      </div>
-      <div class="container" style="width: 80%; text-align: justify;">
-        {{ cardDescription.description }}
-      </div>
-    </div>
-
-    <div class="content-block-info">
-      <div class="content-block-title"> 
-        <h2> Angular </h2>
-      </div>
-      <div class="container" style="width: 80%; text-align: justify;">
-        {{ cardDescription.description }}
-      </div>
-    </div>
-
-    <div class="content-block-info">
-      <div class="content-block-title"> 
-        <h2> Android </h2>
-      </div>
-      <div class="container" style="width: 80%; text-align: justify;">
-        {{ cardDescription.description }}
-      </div>
-    </div>
+    <ng-container  *ngFor="let section of cardDescription.cardDetail?.topicos?.sections">
+      <ng-container *ngFor="let item of section.items">
+        <section class="content-block-info" id="{{item.title_text }}">
+          <div class="content-block-title-h2"> 
+            <h2> {{ item.title }} </h2>
+          </div>
+          <div class="container safeHtml">
+            <h3 class="h4">
+              {{ item.title_text }}
+            </h3>
+            <div [innerHTML]="sanitizerTransform(item.text)"></div>
+          </div>
+        </section>
+      </ng-container>
+    </ng-container>
 
 </div>
 
